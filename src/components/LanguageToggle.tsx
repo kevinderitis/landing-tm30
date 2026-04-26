@@ -34,7 +34,7 @@ export default function LanguageToggle() {
       <button
         type="button"
         onClick={() => handleToggle("en")}
-        className={`rounded-full px-3 py-1.5 text-xs font-extrabold transition sm:px-4 sm:text-sm ${
+        className={`touch-manipulation rounded-full px-3 py-1.5 text-xs font-extrabold transition sm:px-4 sm:text-sm ${
           language === "en" ? "bg-white text-slate-950" : "text-mist hover:text-white"
         }`}
       >
@@ -43,7 +43,7 @@ export default function LanguageToggle() {
       <button
         type="button"
         onClick={() => handleToggle("th")}
-        className={`rounded-full px-3 py-1.5 text-xs font-extrabold transition sm:px-4 sm:text-sm ${
+        className={`touch-manipulation rounded-full px-3 py-1.5 text-xs font-extrabold transition sm:px-4 sm:text-sm ${
           language === "th" ? "bg-white text-slate-950" : "text-mist hover:text-white"
         }`}
       >

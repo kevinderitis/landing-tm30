@@ -40,70 +40,73 @@ export default function SalesScrollStory() {
       const track = section.querySelector(".sales-track");
 
       const ctx = gsap.context(() => {
-        gsap.set(storyCards, {
-          scale: (index) => (index === 0 ? 1 : 0.985),
-          filter: (index) => (index === 0 ? "blur(0px)" : "blur(1px)")
-        });
+        const mm = gsap.matchMedia();
 
-        const timeline = gsap.timeline({
-          scrollTrigger: {
-            trigger: section,
-            start: "top top",
-            end: "+=1700",
-            scrub: 1,
-            pin: true
+        mm.add("(min-width: 768px)", () => {
+          gsap.set(storyCards, {
+            scale: (index) => (index === 0 ? 1 : 0.985),
+            filter: (index) => (index === 0 ? "blur(0px)" : "blur(1px)")
+          });
+
+          const timeline = gsap.timeline({
+            scrollTrigger: {
+              trigger: section,
+              start: "top top",
+              end: "+=1700",
+              scrub: 1,
+              pin: true
+            }
+          });
+
+          if (track) {
+            timeline.to(
+              track,
+              {
+                yPercent: -69.5,
+                duration: 3,
+                ease: "none"
+              },
+              0
+            );
           }
-        });
 
-        if (track) {
-          timeline.to(
-            track,
-            {
-              yPercent: -69.5,
-              duration: 3,
-              ease: "none"
-            },
-            0
-          );
-        }
+          timeline
+            .to(
+              storyCards,
+              {
+                scale: (i) => (i === 0 ? 1 : 0.982),
+                filter: (i) => (i === 0 ? "blur(0px)" : "blur(1px)"),
+                duration: 1,
+                ease: "power2.out"
+              },
+              0
+            )
+            .to(
+              storyCards,
+              {
+                scale: (i) => (i === 1 ? 1 : 0.982),
+                filter: (i) => (i === 1 ? "blur(0px)" : "blur(1px)"),
+                duration: 1,
+                ease: "power2.out"
+              },
+              1
+            )
+            .to(
+              storyCards,
+              {
+                scale: (i) => (i === 2 ? 1 : 0.982),
+                filter: (i) => (i === 2 ? "blur(0px)" : "blur(1px)"),
+                duration: 1,
+                ease: "power2.out"
+              },
+              2
+            );
 
-        timeline
-          .to(
-            storyCards,
-            {
-              scale: (i) => (i === 0 ? 1 : 0.982),
-              filter: (i) => (i === 0 ? "blur(0px)" : "blur(1px)"),
-              duration: 1,
-              ease: "power2.out"
-            },
-            0
-          )
-          .to(
-            storyCards,
-            {
-              scale: (i) => (i === 1 ? 1 : 0.982),
-              filter: (i) => (i === 1 ? "blur(0px)" : "blur(1px)"),
-              duration: 1,
-              ease: "power2.out"
-            },
-            1
-          )
-          .to(
-            storyCards,
-            {
-              scale: (i) => (i === 2 ? 1 : 0.982),
-              filter: (i) => (i === 2 ? "blur(0px)" : "blur(1px)"),
-              duration: 1,
-              ease: "power2.out"
-            },
-            2
-          );
-
-        if (progressBar) {
-          gsap.fromTo(
-            progressBar,
-            { scaleY: 0, transformOrigin: "top center" },
-            {
+          if (progressBar) {
+            gsap.fromTo(
+              progressBar,
+              { scaleY: 0, transformOrigin: "top center" },
+              {
                 scaleY: 1,
                 ease: "none",
                 scrollTrigger: {
@@ -113,11 +116,41 @@ export default function SalesScrollStory() {
                   scrub: true
                 }
               }
-          );
-        }
+            );
+          }
+        });
+
+        mm.add("(max-width: 767px)", () => {
+          gsap.set(storyCards, {
+            opacity: 0,
+            y: 40,
+            scale: 0.98,
+            clearProps: "filter"
+          });
+
+          storyCards.forEach((card, index) => {
+            gsap.to(card, {
+              opacity: 1,
+              y: 0,
+              scale: 1,
+              duration: 0.6,
+              ease: "power2.out",
+              scrollTrigger: {
+                trigger: card,
+                start: "top 82%",
+                once: true
+              },
+              delay: index * 0.05
+            });
+          });
+        });
+
+        cleanup = () => mm.revert();
       }, section);
 
-      cleanup = () => ctx.revert();
+      cleanup = () => {
+        ctx.revert();
+      };
     };
 
     run();
