@@ -54,9 +54,9 @@ export const translations = {
     storyText:
       "This section shows the shift from manual passport typing to a faster, cleaner reporting flow your staff can follow every day.",
     videoEyebrow: "See the product in action",
-    videoTitle: "A short demo is often all it takes.",
+    videoTitle: "See how your team can handle TM30 faster.",
     videoText:
-      "Show hotel and hostel owners exactly how the app fits into check-in and how quickly the daily export is ready for submission.",
+      "Show exactly how the app fits into your front desk routine: scan the passport at check-in, prepare the daily Excel file, and complete reporting with less manual work.",
     videoPrimary: "Request a live demo",
     videoSecondary: "See plans",
     videoBadge: "Product demo video",
@@ -148,8 +148,8 @@ export const translations = {
     storyText:
       "ส่วนนี้แสดงให้เห็นการเปลี่ยนจากการพิมพ์ข้อมูลพาสปอร์ตด้วยมือ ไปเป็นเวิร์กโฟลว์ที่เร็วขึ้นและจัดการง่ายขึ้นในทุกวัน",
     videoEyebrow: "ดูการใช้งานจริง",
-    videoTitle: "เดโมสั้นๆ ก็ทำให้เห็นภาพได้ทันที",
-    videoText: "แสดงให้เจ้าของโรงแรมหรือโฮสเทลเห็นชัดๆ ว่าแอปเข้ากับขั้นตอนเช็กอินอย่างไร และไฟล์รายวันพร้อมใช้งานได้เร็วแค่ไหน",
+    videoTitle: "ดูว่าทีมของคุณสามารถจัดการ TM30 ได้เร็วขึ้นอย่างไร",
+    videoText: "แสดงให้เห็นชัดเจนว่าแอปเข้ากับงานหน้าฟรอนต์อย่างไร: สแกนพาสปอร์ตตอนเช็กอิน เตรียมไฟล์ Excel รายวัน และทำรายงานได้ด้วยงานแมนนวลที่น้อยลง",
     videoPrimary: "ขอเดโมสด",
     videoSecondary: "ดูแพ็กเกจ",
     videoBadge: "วิดีโอเดโมสินค้า",
