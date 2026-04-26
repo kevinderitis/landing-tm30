@@ -1,0 +1,365 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+import LanguageToggle from "../components/LanguageToggle";
+import SalesScrollStory from "../components/SalesScrollStory";
+import { translations } from "../data/translations";
+
+const t = translations.en;
+const whatsappNumber = "0000000000";
+const wa = (text: string) =>
+  `https://wa.me/${whatsappNumber}?text=${encodeURIComponent(text)}`;
+
+const plans = [
+  {
+    name: t.plan1Name,
+    desc: t.plan1Desc,
+    price: "$29",
+    limit: t.plan1Limit,
+    featured: false,
+    features: [t.planFeature1, t.planFeature2, t.planFeature3],
+    text: "Hi TM30 Flow, I want to start with the Starter plan."
+  },
+  {
+    name: t.plan2Name,
+    desc: t.plan2Desc,
+    price: "$49",
+    limit: t.plan2Limit,
+    featured: true,
+    features: [t.planFeature1, t.planFeature2, t.planFeature4],
+    text: "Hi TM30 Flow, I want to start with the Growth plan."
+  },
+  {
+    name: t.plan3Name,
+    desc: t.plan3Desc,
+    price: "$69",
+    limit: t.plan3Limit,
+    featured: false,
+    features: [t.planFeature1, t.planFeature2, t.planFeature5],
+    text: "Hi TM30 Flow, I want to start with the Unlimited plan."
+  }
+];
+---
+
+<BaseLayout
+  title="TM30 Flow | Faster Passport Scanning for Hotels in Thailand"
+  description="Automate TM30 guest reporting in Thailand. Scan passports at check-in, export Excel, and submit faster with fewer mistakes and lower risk of fines."
+>
+  <div class="pointer-events-none fixed inset-0 bg-[linear-gradient(rgba(255,255,255,0.035)_1px,transparent_1px),linear-gradient(90deg,rgba(255,255,255,0.035)_1px,transparent_1px)] bg-[size:26px_26px] opacity-40 [mask-image:linear-gradient(180deg,rgba(0,0,0,0.35),transparent_85%)]"></div>
+
+  <div class="relative mx-auto w-[min(calc(100%-2rem),1200px)] pb-24 md:w-[min(calc(100%-3rem),1200px)]">
+    <header class="sticky top-3 z-30 mt-4 flex items-center justify-between gap-3 rounded-full border border-white/10 bg-slate-950/80 px-4 py-2.5 shadow-glow backdrop-blur">
+      <a href="#hero" class="flex items-center gap-3">
+        <span class="grid h-9 w-9 place-items-center rounded-2xl bg-[linear-gradient(135deg,#4ce0b3,#9fffe0)] font-display text-sm font-bold tracking-[0.06em] text-slate-950">
+          T30
+        </span>
+        <strong class="font-display text-sm sm:text-base">TM30 Flow</strong>
+      </a>
+
+      <div class="flex items-center gap-3">
+        <nav class="hidden gap-5 text-sm text-mist md:flex">
+          <a data-i18n="navProblem" href="#problem" class="transition hover:text-cloud">Problem</a>
+          <a data-i18n="navHow" href="#how-it-works" class="transition hover:text-cloud">How it works</a>
+          <a data-i18n="navPlans" href="#pricing" class="transition hover:text-cloud">Plans</a>
+          <a data-i18n="navDemo" href="#demo" class="transition hover:text-cloud">Demo</a>
+        </nav>
+        <LanguageToggle client:load />
+      </div>
+    </header>
+
+    <main>
+      <section id="hero" class="grid gap-10 pb-10 pt-28 md:pt-32 lg:grid-cols-[1.02fr_0.98fr] lg:items-center">
+        <div>
+          <div class="inline-flex rounded-full border border-mint/20 bg-mint/10 px-3 py-2 text-[0.77rem] font-extrabold uppercase tracking-[0.14em] text-mint" data-i18n="eyebrow">
+            {t.eyebrow}
+          </div>
+          <h1 class="mt-5 max-w-4xl font-display text-[clamp(2.7rem,10vw,5.5rem)] leading-[0.96] tracking-[-0.06em]" data-i18n="heroTitle">
+            {t.heroTitle}
+          </h1>
+          <p class="mt-5 max-w-2xl text-base leading-8 text-mist md:text-lg" data-i18n="heroText">{t.heroText}</p>
+
+          <div class="mt-8 flex flex-wrap gap-4">
+            <a
+              href={wa("Hi TM30 Flow, I want to book a demo.")}
+              target="_blank"
+              rel="noreferrer"
+              class="inline-flex min-h-[3.35rem] items-center justify-center rounded-full bg-[linear-gradient(135deg,#4ce0b3,#92ffd9)] px-6 py-3 text-sm font-extrabold text-slate-950 transition hover:-translate-y-0.5"
+              data-i18n="heroPrimary"
+            >
+              {t.heroPrimary}
+            </a>
+            <a
+              href="#demo"
+              class="inline-flex min-h-[3.35rem] items-center justify-center rounded-full border border-white/10 bg-white/5 px-6 py-3 text-sm font-extrabold transition hover:-translate-y-0.5"
+              data-i18n="heroSecondary"
+            >
+              {t.heroSecondary}
+            </a>
+          </div>
+
+          <ul class="mt-8 grid gap-3">
+            <li class="flex items-start gap-3">
+              <span class="mt-2 h-3 w-3 rounded-full bg-[linear-gradient(135deg,#4ce0b3,#ffb84d)] shadow-[0_0_0_8px_rgba(76,224,179,0.14)]"></span>
+              <span data-i18n="heroPoint1">{t.heroPoint1}</span>
+            </li>
+            <li class="flex items-start gap-3">
+              <span class="mt-2 h-3 w-3 rounded-full bg-[linear-gradient(135deg,#4ce0b3,#ffb84d)] shadow-[0_0_0_8px_rgba(76,224,179,0.14)]"></span>
+              <span data-i18n="heroPoint2">{t.heroPoint2}</span>
+            </li>
+            <li class="flex items-start gap-3">
+              <span class="mt-2 h-3 w-3 rounded-full bg-[linear-gradient(135deg,#4ce0b3,#ffb84d)] shadow-[0_0_0_8px_rgba(76,224,179,0.14)]"></span>
+              <span data-i18n="heroPoint3">{t.heroPoint3}</span>
+            </li>
+          </ul>
+        </div>
+
+        <div class="flex justify-center">
+          <div class="animate-float w-full max-w-[420px] rounded-[2.2rem] border border-white/10 bg-[linear-gradient(180deg,rgba(16,39,66,0.9),rgba(9,21,37,0.84))] p-4 shadow-glow">
+            <div class="mb-4 flex gap-1.5">
+              <span class="h-2 w-2 rounded-full bg-white/20"></span>
+              <span class="h-2 w-2 rounded-full bg-white/20"></span>
+              <span class="h-2 w-2 rounded-full bg-white/20"></span>
+            </div>
+            <div class="relative min-h-[500px] overflow-hidden rounded-[1.8rem] bg-[radial-gradient(circle_at_top,rgba(76,224,179,0.18),transparent_40%),linear-gradient(180deg,#0c1b2f_0%,#08111d_100%)] p-6">
+              <div class="absolute left-1/2 top-12 h-[220px] w-[220px] -translate-x-1/2 rounded-full border border-white/10"></div>
+              <div class="absolute left-1/2 top-[4.7rem] h-[184px] w-[184px] -translate-x-1/2 rounded-full border border-dashed border-mint/30"></div>
+              <div class="absolute left-1/2 top-[6.3rem] h-[132px] w-[132px] -translate-x-1/2 rounded-full border border-amber/30"></div>
+
+              <div class="relative z-10 mt-56 rounded-[1.6rem] border border-white/10 bg-white/5 p-5 backdrop-blur">
+                <span class="block text-sm text-mist" data-i18n="heroTag">{t.heroTag}</span>
+                <strong class="mt-2 block text-xl" data-i18n="heroTagTitle">{t.heroTagTitle}</strong>
+                <small class="mt-2 block text-sm text-white/75" data-i18n="heroTagText">{t.heroTagText}</small>
+              </div>
+
+              <div class="relative z-10 mt-4 rounded-[1.6rem] border border-white/10 bg-white/5 p-5 backdrop-blur">
+                <strong class="block font-display text-2xl" data-i18n="heroMetric1Value">{t.heroMetric1Value}</strong>
+                <span class="mt-2 block text-sm text-mist" data-i18n="heroMetric1Label">{t.heroMetric1Label}</span>
+              </div>
+
+              <div class="relative z-10 ml-auto mt-4 w-[58%] rounded-[1.6rem] border border-white/10 bg-white/5 p-5 backdrop-blur max-md:w-full">
+                <strong class="block font-display text-2xl" data-i18n="heroMetric2Value">{t.heroMetric2Value}</strong>
+                <span class="mt-2 block text-sm text-mist" data-i18n="heroMetric2Label">{t.heroMetric2Label}</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="grid gap-5 rounded-[2rem] border border-white/10 bg-[linear-gradient(180deg,rgba(16,39,66,0.9),rgba(9,21,37,0.84))] p-7 shadow-glow md:grid-cols-3">
+        <div>
+          <strong class="mb-1 block font-display text-3xl" data-i18n="stats1Value">{t.stats1Value}</strong>
+          <span class="text-mist" data-i18n="stats1Label">{t.stats1Label}</span>
+        </div>
+        <div>
+          <strong class="mb-1 block font-display text-3xl" data-i18n="stats2Value">{t.stats2Value}</strong>
+          <span class="text-mist" data-i18n="stats2Label">{t.stats2Label}</span>
+        </div>
+        <div>
+          <strong class="mb-1 block font-display text-3xl" data-i18n="stats3Value">{t.stats3Value}</strong>
+          <span class="text-mist" data-i18n="stats3Label">{t.stats3Label}</span>
+        </div>
+      </section>
+
+      <section id="problem" class="grid gap-8 py-20">
+        <div class="max-w-3xl">
+          <div class="inline-flex rounded-full border border-mint/20 bg-mint/10 px-3 py-2 text-[0.77rem] font-extrabold uppercase tracking-[0.14em] text-mint" data-i18n="problemEyebrow">
+            {t.problemEyebrow}
+          </div>
+          <h2 class="mt-5 font-display text-[clamp(2rem,7vw,3.4rem)] leading-none tracking-[-0.05em]" data-i18n="problemTitle">
+            {t.problemTitle}
+          </h2>
+          <p class="mt-4 text-base leading-8 text-mist md:text-lg" data-i18n="problemText">{t.problemText}</p>
+        </div>
+
+        <div class="grid gap-5 md:grid-cols-3">
+          {[["01", t.problem1Title, t.problem1Text], ["02", t.problem2Title, t.problem2Text], ["03", t.problem3Title, t.problem3Text]].map(([step, title, body], index) => (
+            <article class="rounded-[1.8rem] border border-white/10 bg-[linear-gradient(180deg,rgba(16,39,66,0.9),rgba(9,21,37,0.84))] p-6 shadow-glow">
+              <span class="mb-5 inline-flex h-11 w-11 items-center justify-center rounded-2xl bg-mint/10 font-display font-bold text-mint">{step}</span>
+              <h3 class="font-display text-xl" data-i18n={`problem${index + 1}Title`}>{title}</h3>
+              <p class="mt-3 text-mist" data-i18n={`problem${index + 1}Text`}>{body}</p>
+            </article>
+          ))}
+        </div>
+      </section>
+
+      <section id="how-it-works" class="grid gap-8 py-10">
+        <div class="max-w-3xl">
+          <div class="inline-flex rounded-full border border-mint/20 bg-mint/10 px-3 py-2 text-[0.77rem] font-extrabold uppercase tracking-[0.14em] text-mint" data-i18n="howEyebrow">
+            {t.howEyebrow}
+          </div>
+          <h2 class="mt-5 font-display text-[clamp(2rem,7vw,3.4rem)] leading-none tracking-[-0.05em]" data-i18n="howTitle">
+            {t.howTitle}
+          </h2>
+          <p class="mt-4 text-base leading-8 text-mist md:text-lg" data-i18n="howText">{t.howText}</p>
+        </div>
+
+        <div class="grid gap-5 md:grid-cols-3">
+          {[["1", t.step1Title, t.step1Text], ["2", t.step2Title, t.step2Text], ["3", t.step3Title, t.step3Text]].map(([step, title, body], index) => (
+            <article class="rounded-[1.8rem] border border-white/10 bg-[linear-gradient(180deg,rgba(16,39,66,0.9),rgba(9,21,37,0.84))] p-6 shadow-glow">
+              <span class="mb-5 inline-flex h-11 w-11 items-center justify-center rounded-2xl bg-mint/10 font-display font-bold text-mint">{step}</span>
+              <h3 class="font-display text-xl" data-i18n={`step${index + 1}Title`}>{title}</h3>
+              <p class="mt-3 text-mist" data-i18n={`step${index + 1}Text`}>{body}</p>
+            </article>
+          ))}
+        </div>
+      </section>
+
+      <section class="py-20">
+        <div class="max-w-3xl">
+          <div class="inline-flex rounded-full border border-mint/20 bg-mint/10 px-3 py-2 text-[0.77rem] font-extrabold uppercase tracking-[0.14em] text-mint" data-i18n="storyEyebrow">
+            {t.storyEyebrow}
+          </div>
+          <h2 class="mt-5 font-display text-[clamp(2rem,7vw,3.4rem)] leading-none tracking-[-0.05em]" data-i18n="storyTitle">
+            {t.storyTitle}
+          </h2>
+          <p class="mt-4 max-w-3xl text-base leading-8 text-mist md:text-lg" data-i18n="storyText">{t.storyText}</p>
+        </div>
+
+        <div class="mt-8">
+          <SalesScrollStory client:load />
+        </div>
+      </section>
+
+      <section id="demo" class="grid gap-8 py-10 lg:grid-cols-[0.95fr_1.05fr] lg:items-center">
+        <div>
+          <div class="inline-flex rounded-full border border-mint/20 bg-mint/10 px-3 py-2 text-[0.77rem] font-extrabold uppercase tracking-[0.14em] text-mint" data-i18n="videoEyebrow">
+            {t.videoEyebrow}
+          </div>
+          <h2 class="mt-5 font-display text-[clamp(2rem,7vw,3.4rem)] leading-none tracking-[-0.05em]" data-i18n="videoTitle">
+            {t.videoTitle}
+          </h2>
+          <p class="mt-4 text-base leading-8 text-mist md:text-lg" data-i18n="videoText">{t.videoText}</p>
+
+          <div class="mt-8 flex flex-wrap gap-4">
+            <a
+              href={wa("Hi TM30 Flow, I want a live demo.")}
+              target="_blank"
+              rel="noreferrer"
+              class="inline-flex min-h-[3.35rem] items-center justify-center rounded-full bg-[linear-gradient(135deg,#4ce0b3,#92ffd9)] px-6 py-3 text-sm font-extrabold text-slate-950 transition hover:-translate-y-0.5"
+              data-i18n="videoPrimary"
+            >
+              {t.videoPrimary}
+            </a>
+            <a
+              href="#pricing"
+              class="inline-flex min-h-[3.35rem] items-center justify-center rounded-full border border-white/10 bg-white/5 px-6 py-3 text-sm font-extrabold transition hover:-translate-y-0.5"
+              data-i18n="videoSecondary"
+            >
+              {t.videoSecondary}
+            </a>
+          </div>
+        </div>
+
+        <div class="relative overflow-hidden rounded-[2rem] border border-white/10 bg-[linear-gradient(180deg,rgba(16,39,66,0.9),rgba(9,21,37,0.84))] p-4 shadow-glow">
+          <div class="absolute left-4 top-4 z-10 rounded-full border border-white/10 bg-slate-950/75 px-4 py-2 text-xs font-semibold" data-i18n="videoBadge">
+            {t.videoBadge}
+          </div>
+          <video
+            controls
+            playsinline
+            preload="metadata"
+            poster="https://images.unsplash.com/photo-1551882547-ff40c63fe5fa?auto=format&fit=crop&w=1200&q=80"
+            class="block min-h-[280px] w-full rounded-[1.5rem] bg-slate-950 object-cover"
+          >
+            <source src="https://interactive-examples.mdn.mozilla.net/media/cc0-videos/flower.mp4" type="video/mp4" />
+          </video>
+        </div>
+      </section>
+
+      <section id="pricing" class="grid gap-8 py-10">
+        <div class="max-w-3xl">
+          <div class="inline-flex rounded-full border border-mint/20 bg-mint/10 px-3 py-2 text-[0.77rem] font-extrabold uppercase tracking-[0.14em] text-mint" data-i18n="pricingEyebrow">
+            {t.pricingEyebrow}
+          </div>
+          <h2 class="mt-5 font-display text-[clamp(2rem,7vw,3.4rem)] leading-none tracking-[-0.05em]" data-i18n="pricingTitle">
+            {t.pricingTitle}
+          </h2>
+          <p class="mt-4 text-base leading-8 text-mist md:text-lg" data-i18n="pricingText">{t.pricingText}</p>
+        </div>
+
+        <div class="grid gap-5 md:grid-cols-3">
+          {plans.map((plan) => (
+            <article class:list={["relative flex flex-col gap-4 rounded-[1.8rem] border p-6 shadow-glow", plan.featured ? "scale-[1.01] border-mint/35 bg-[linear-gradient(180deg,rgba(16,52,68,0.97),rgba(9,21,37,0.9))]" : "border-white/10 bg-[linear-gradient(180deg,rgba(16,39,66,0.9),rgba(9,21,37,0.84))]"]}>
+              {plan.featured && (
+                <div class="absolute right-4 top-4 rounded-full bg-mint/10 px-3 py-2 text-xs font-extrabold text-mint" data-i18n="popular">
+                  {t.popular}
+                </div>
+              )}
+              <div>
+                <h3 class="font-display text-2xl" data-i18n={plan.name === "Starter" ? "plan1Name" : plan.name === "Growth" ? "plan2Name" : "plan3Name"}>{plan.name}</h3>
+                <p class="mt-2 text-mist" data-i18n={plan.name === "Starter" ? "plan1Desc" : plan.name === "Growth" ? "plan2Desc" : "plan3Desc"}>{plan.desc}</p>
+              </div>
+              <div class="flex items-end gap-2 font-display text-5xl leading-none">
+                {plan.price}
+                <span class="font-sans text-base text-mist" data-i18n="perMonth">{t.perMonth}</span>
+              </div>
+              <p class="text-mist" data-i18n={plan.name === "Starter" ? "plan1Limit" : plan.name === "Growth" ? "plan2Limit" : "plan3Limit"}>{plan.limit}</p>
+              <ul class="space-y-2 text-sm text-cloud">
+                {plan.features.map((feature, featureIndex) => (
+                  <li class="flex gap-3">
+                    <span class="mt-1.5 h-2.5 w-2.5 rounded-full bg-mint"></span>
+                    <span data-i18n={`planFeature${featureIndex === 2 ? (plan.featured ? 4 : plan.name === "Unlimited" ? 5 : 3) : featureIndex + 1}`}>{feature}</span>
+                  </li>
+                ))}
+              </ul>
+              <a
+                href={wa(plan.text)}
+                target="_blank"
+                rel="noreferrer"
+                class:list={[
+                  "mt-auto inline-flex min-h-[3.35rem] items-center justify-center rounded-full px-6 py-3 text-sm font-extrabold transition hover:-translate-y-0.5",
+                  plan.featured ? "bg-[linear-gradient(135deg,#4ce0b3,#92ffd9)] text-slate-950" : "border border-white/10 bg-white/5"
+                ]}
+                data-i18n="planCta"
+              >
+                {t.planCta}
+              </a>
+            </article>
+          ))}
+        </div>
+      </section>
+
+      <section class="grid gap-6 rounded-[2rem] border border-white/10 bg-[radial-gradient(circle_at_left_top,rgba(255,184,77,0.14),transparent_28%),linear-gradient(135deg,rgba(17,44,64,0.96),rgba(7,18,31,0.92))] p-7 shadow-glow md:grid-cols-[1.2fr_auto] md:items-center md:p-10">
+        <div>
+          <div class="inline-flex rounded-full border border-mint/20 bg-mint/10 px-3 py-2 text-[0.77rem] font-extrabold uppercase tracking-[0.14em] text-mint" data-i18n="ctaEyebrow">
+            {t.ctaEyebrow}
+          </div>
+          <h2 class="mt-5 font-display text-[clamp(2rem,7vw,3.2rem)] leading-none tracking-[-0.05em]" data-i18n="ctaTitle">
+            {t.ctaTitle}
+          </h2>
+        </div>
+        <div class="flex flex-wrap gap-4">
+          <a
+            href={wa("Hi TM30 Flow, I want to schedule a demo.")}
+            target="_blank"
+            rel="noreferrer"
+            class="inline-flex min-h-[3.35rem] items-center justify-center rounded-full bg-[linear-gradient(135deg,#4ce0b3,#92ffd9)] px-6 py-3 text-sm font-extrabold text-slate-950 transition hover:-translate-y-0.5"
+            data-i18n="ctaPrimary"
+          >
+            {t.ctaPrimary}
+          </a>
+          <a
+            href="#pricing"
+            class="inline-flex min-h-[3.35rem] items-center justify-center rounded-full border border-white/10 bg-white/5 px-6 py-3 text-sm font-extrabold transition hover:-translate-y-0.5"
+            data-i18n="ctaSecondary"
+          >
+            {t.ctaSecondary}
+          </a>
+        </div>
+      </section>
+    </main>
+
+    <footer class="flex flex-col gap-2 py-8 text-sm text-mist">
+      <p data-i18n="footerText">{t.footerText}</p>
+      <p data-i18n="footerNote">{t.footerNote}</p>
+    </footer>
+  </div>
+
+  <a
+    href={wa("Hi TM30 Flow, I want more information.")}
+    target="_blank"
+    rel="noreferrer"
+    class="fixed bottom-5 right-5 z-40 inline-flex min-h-[3.6rem] items-center justify-center rounded-full bg-[#25d366] px-5 py-3 text-sm font-extrabold text-white shadow-glow"
+  >
+    WhatsApp
+  </a>
+</BaseLayout>

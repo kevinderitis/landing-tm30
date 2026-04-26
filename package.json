@@ -1,0 +1,29 @@
+{
+  "name": "landing-tm30",
+  "version": "1.0.0",
+  "type": "module",
+  "scripts": {
+    "dev": "astro dev",
+    "build": "astro build",
+    "preview": "astro preview"
+  },
+  "keywords": [
+    "astro",
+    "tailwind",
+    "react",
+    "gsap",
+    "landing-page"
+  ],
+  "author": "",
+  "license": "ISC",
+  "description": "TM30 Flow landing page for hotels and hostels in Thailand.",
+  "dependencies": {
+    "@astrojs/react": "^3.6.3",
+    "@astrojs/tailwind": "^5.1.4",
+    "astro": "^4.16.17",
+    "gsap": "^3.15.0",
+    "react": "^18.3.1",
+    "react-dom": "^18.3.1",
+    "tailwindcss": "^3.4.19"
+  }
+}
