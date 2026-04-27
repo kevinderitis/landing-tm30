@@ -18,15 +18,14 @@ export default function DemoVideoPlayer({ src }: DemoVideoPlayerProps) {
 
   return (
     <div className="relative overflow-hidden rounded-[1.5rem] bg-black">
-      <div className="aspect-[16/10] w-full bg-black md:aspect-video">
+      <div className="aspect-[16/11] w-full bg-black md:aspect-[16/10]">
         <video
           ref={videoRef}
-          controls
           playsInline
+          muted
           preload="metadata"
-          controlsList="nofullscreen noremoteplayback"
           disablePictureInPicture
-          className="h-full w-full rounded-[1.5rem] bg-black object-contain"
+          className="h-full w-full scale-[1.09] rounded-[1.5rem] bg-black object-cover object-center md:scale-[1.12]"
           onPlay={() => setIsPlaying(true)}
           onPause={() => setIsPlaying(false)}
         >
