@@ -2,6 +2,7 @@
 import BaseLayout from "../layouts/BaseLayout.astro";
 import DemoVideoPlayer from "../components/DemoVideoPlayer";
 import LanguageToggle from "../components/LanguageToggle";
+import ScanProcessCarousel from "../components/ScanProcessCarousel";
 import { translations } from "../data/translations";
 
 const t = translations.en;
@@ -115,34 +116,7 @@ const plans = [
         </div>
 
         <div class="flex justify-center">
-          <div class="animate-float w-full max-w-[420px] rounded-[2.2rem] border border-white/10 bg-[linear-gradient(180deg,rgba(16,39,66,0.9),rgba(9,21,37,0.84))] p-4 shadow-glow">
-            <div class="mb-4 flex gap-1.5">
-              <span class="h-2 w-2 rounded-full bg-white/20"></span>
-              <span class="h-2 w-2 rounded-full bg-white/20"></span>
-              <span class="h-2 w-2 rounded-full bg-white/20"></span>
-            </div>
-            <div class="relative min-h-[500px] overflow-hidden rounded-[1.8rem] bg-[radial-gradient(circle_at_top,rgba(76,224,179,0.18),transparent_40%),linear-gradient(180deg,#0c1b2f_0%,#08111d_100%)] p-6">
-              <div class="absolute left-1/2 top-12 h-[220px] w-[220px] -translate-x-1/2 rounded-full border border-white/10"></div>
-              <div class="absolute left-1/2 top-[4.7rem] h-[184px] w-[184px] -translate-x-1/2 rounded-full border border-dashed border-mint/30"></div>
-              <div class="absolute left-1/2 top-[6.3rem] h-[132px] w-[132px] -translate-x-1/2 rounded-full border border-amber/30"></div>
-
-              <div class="relative z-10 mt-56 rounded-[1.6rem] border border-white/10 bg-white/5 p-5 backdrop-blur">
-                <span class="block text-sm text-mist" data-i18n="heroTag">{t.heroTag}</span>
-                <strong class="mt-2 block text-xl" data-i18n="heroTagTitle">{t.heroTagTitle}</strong>
-                <small class="mt-2 block text-sm text-white/75" data-i18n="heroTagText">{t.heroTagText}</small>
-              </div>
-
-              <div class="relative z-10 mt-4 rounded-[1.6rem] border border-white/10 bg-white/5 p-5 backdrop-blur">
-                <strong class="block font-display text-2xl" data-i18n="heroMetric1Value">{t.heroMetric1Value}</strong>
-                <span class="mt-2 block text-sm text-mist" data-i18n="heroMetric1Label">{t.heroMetric1Label}</span>
-              </div>
-
-              <div class="relative z-10 ml-auto mt-4 w-[58%] rounded-[1.6rem] border border-white/10 bg-white/5 p-5 backdrop-blur max-md:w-full">
-                <strong class="block font-display text-2xl" data-i18n="heroMetric2Value">{t.heroMetric2Value}</strong>
-                <span class="mt-2 block text-sm text-mist" data-i18n="heroMetric2Label">{t.heroMetric2Label}</span>
-              </div>
-            </div>
-          </div>
+          <ScanProcessCarousel client:load />
         </div>
       </section>
 
